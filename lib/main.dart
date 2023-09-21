@@ -32,16 +32,15 @@ class Triangle extends StatefulWidget {
 }
 
 class _TriangleState extends State<Triangle> {
-
   @override
   void initState() {
     super.initState();
   }
+
   int selectedEffect = 0;
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -76,7 +75,6 @@ class _TriangleState extends State<Triangle> {
         ],
       ),
       body: RepaintBoundary(
-
         child: CustomPaint(
           painter: TrianglePainter(effect: selectedEffect),
           child: Container(),
@@ -90,7 +88,7 @@ class TrianglePainter extends CustomPainter {
   final int effect;
   late TriangleEffect triangleEffect;
 
-  TrianglePainter({required this.effect}) : super() {
+  TrianglePainter({this.effect = 0}) {
     if (TriangleEffect.values.length > effect) {
       triangleEffect = TriangleEffect.values[effect];
     } else {
